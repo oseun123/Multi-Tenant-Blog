@@ -19,6 +19,8 @@ class CreateAdminsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->string('reset_token')->nullable();
+            $table->timestamp('reset_expires_at')->nullable();
             $table->timestamps();
         });
     }
