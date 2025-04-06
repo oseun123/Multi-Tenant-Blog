@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
         'status',
         'password',
+        'approved_by',
+        'approved_at'
     ];
 
     /**

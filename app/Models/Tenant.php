@@ -1,18 +1,15 @@
 <?php
 
 
+
 namespace App\Models;
 
-use App\Models\Domain;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Stancl\Tenancy\Database\Models\Tenant as BaseTenant;
+use Stancl\Tenancy\Contracts\TenantWithDatabase;
+use Stancl\Tenancy\Database\Concerns\HasDatabase;
 
-
-class Tenant extends Model
+class Tenant extends BaseTenant implements TenantWithDatabase
 {
-    protected $fillable = ['id', 'data'];
-
-    // Cast the 'data' field to an array so that it can be accessed as an array
-    protected $casts = [
-        'data' => 'array',
-    ];
+    use HasDatabase, SoftDeletes;
 }
